@@ -40,3 +40,19 @@ Contact.prototype.fullName = function(){
     });
 
   }); 
+  $(".new-address").each(function() {
+    var inputtedStreet = $(this).find("input.new-street").val();
+    var inputtedCity = $(this).find("input.new-city").val();
+    var inputtedCounty = $(this).find("input.new-county").val();
+    var newAddress = new Address(inputtedStreet, inputtedCity, inputtedCounty);
+    newContact.addresses.push(newAddress);
+    $("ul#addresses").text("");
+    newContact.addresses.forEach(function(address) {
+    $("ul#addresses").append("<li>" + address.street + ", " + address.city + " " + address.County + "</li>");
+    
+    $("input.new-country").val("");
+    $("input.new-city").val("");
+    $("input.new-street").val("");
+    });
+});
+  
